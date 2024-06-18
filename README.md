@@ -247,6 +247,7 @@ console.log(`Facebook user's email is ${result.email}`);
 
 * [`initialize(...)`](#initialize)
 * [`login(...)`](#login)
+* [`limitedLogin(...)`](#limitedlogin)
 * [`logout()`](#logout)
 * [`reauthorize()`](#reauthorize)
 * [`getCurrentAccessToken()`](#getcurrentaccesstoken)
@@ -287,6 +288,21 @@ login(options: { permissions: string[]; }) => Promise<FacebookLoginResponse>
 | **`options`** | <code>{ permissions: string[]; }</code> |
 
 **Returns:** <code>Promise&lt;<a href="#facebookloginresponse">FacebookLoginResponse</a>&gt;</code>
+
+--------------------
+
+
+### limitedLogin(...)
+
+```typescript
+limitedLogin(options: { permissions: string[]; tracking?: 'limited' | 'enabled'; nonce?: string; }) => Promise<LimitedFacebookLoginResponse>
+```
+
+| Param         | Type                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| **`options`** | <code>{ permissions: string[]; tracking?: 'limited' \| 'enabled'; nonce?: string; }</code> |
+
+**Returns:** <code>Promise&lt;<a href="#limitedfacebookloginresponse">LimitedFacebookLoginResponse</a>&gt;</code>
 
 --------------------
 
@@ -424,6 +440,13 @@ setAdvertiserIDCollectionEnabled(options: { enabled: boolean; }) => Promise<void
 | **`permissions`**         | <code>string[]</code> |
 | **`token`**               | <code>string</code>   |
 | **`userId`**              | <code>string</code>   |
+
+
+#### LimitedFacebookLoginResponse
+
+| Prop                      | Type                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| **`authenticationToken`** | <code>{ token: string; userId?: string; name?: string; email?: string; }</code> |
 
 
 #### FacebookCurrentAccessTokenResponse
